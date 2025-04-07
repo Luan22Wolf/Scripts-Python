@@ -1,0 +1,280 @@
+[
+    {
+        "dbName": "hospital_esperanca",
+        "description": "",
+        "isSSH": false,
+        "isSSLOn": false,
+        "lastQuery": "SELECT *\nFROM usuarios_sistema \nLIMIT 1000",
+        "lastTabOpened": 0,
+        "pictureUrl": "",
+        "port": 3306,
+        "sshHost": "",
+        "sshPort": 0,
+        "sshUser": "",
+        "sshUsingPrivateKey": false,
+        "historyQueries": [
+            {
+                "date": "Apr 3, 2025 11:34:05.026",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "ALTER TABLE consultas DROP FOREIGN KEY consultas_ibfk_1;\n\nALTER TABLE consultas \nADD CONSTRAINT consultas_ibfk_1 \nFOREIGN KEY (paciente_id) \nREFERENCES pacientes(id) \nON DELETE CASCADE;"
+            },
+            {
+                "date": "Apr 3, 2025 11:17:38.154",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "ALTER TABLE pacientes \nADD COLUMN usuario_id INT,\nADD CONSTRAINT fk_paciente_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios_sistema(id);"
+            },
+            {
+                "date": "Apr 3, 2025 11:16:11.731",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "DESC usuario_sistema;\nDESC pacientes;"
+            },
+            {
+                "date": "Apr 3, 2025 11:13:09.713",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "ALTER TABLE pacientes \nADD COLUMN usuario_id INT,\nADD CONSTRAINT fk_paciente_usuario FOREIGN KEY (usuario_id) REFERENCES usuario_sistema(id);"
+            },
+            {
+                "date": "Apr 3, 2025 11:11:58.679",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "SELECT TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME \nFROM information_schema.KEY_COLUMN_USAGE \nWHERE TABLE_NAME IN ('usuario_sistema', 'pacientes')\nAND REFERENCED_TABLE_NAME IS NOT NULL;"
+            },
+            {
+                "date": "Apr 3, 2025 11:10:16.371",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "SELECT TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME \nFROM information_schema.KEY_COLUMN_USAGE \nWHERE REFERENCED_TABLE_NAME = 'usuario_sistema';"
+            },
+            {
+                "date": "Apr 3, 2025 11:09:33.470",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "SELECT TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME \nFROM information_schema.KEY_COLUMN_USAGE \nWHERE REFERENCED_TABLE_NAME = 'pacientes';"
+            },
+            {
+                "date": "Apr 3, 2025 11:09:16.197",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "SELECT TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME \nFROM information_schema.KEY_COLUMN_USAGE \nWHERE REFERENCED_TABLE_NAME = 'usuario_sistema';"
+            },
+            {
+                "date": "Apr 3, 2025 11:09:16.197",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "SELECT TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME \nFROM information_schema.KEY_COLUMN_USAGE \nWHERE REFERENCED_TABLE_NAME = 'usuario_sistema';"
+            },
+            {
+                "date": "Apr 3, 2025 10:23:24.790",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "ALTER TABLE consultas \nADD CONSTRAINT fk_medico FOREIGN KEY (medico_id) REFERENCES medicos(id);"
+            },
+            {
+                "date": "Apr 3, 2025 09:10:21.137",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "DESCRIBE pacientes;\nDESCRIBE consultas;"
+            },
+            {
+                "date": "Apr 3, 2025 09:07:34.909",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "DESCRIBE pacientes;\nDESCRIBE consultas;"
+            },
+            {
+                "date": "Apr 3, 2025 09:07:34.909",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "DESCRIBE pacientes;\nDESCRIBE consultas;"
+            },
+            {
+                "date": "Apr 3, 2025 09:07:01.664",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "ALTER TABLE consultas ADD CONSTRAINT fk_paciente\nFOREIGN KEY (paciente_id) REFERENCES pacientes(id) ON DELETE CASCADE;"
+            },
+            {
+                "date": "Apr 3, 2025 09:06:25.615",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE pacientes (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nome_completo VARCHAR(255) NOT NULL,\n    cpf VARCHAR(14) UNIQUE NOT NULL,\n    data_nascimento DATE NOT NULL\n);"
+            },
+            {
+                "date": "Apr 3, 2025 01:09:56.893",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "SELECT *\nFROM consultas \nLIMIT 1000"
+            },
+            {
+                "date": "Apr 3, 2025 00:42:10.400",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "ALTER TABLE consultas MODIFY observacoes TEXT NULL;"
+            },
+            {
+                "date": "Apr 3, 2025 00:09:38.245",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO consultas (paciente_id, data_consulta, medico_nome, especialidade, status) VALUES\n(1, '2025-04-01', 'Dr. Carlos Almeida', 'Clínico Geral', 'Agendada'),\n(1, '2025-04-05', 'Dra. Marina Souza', 'Cardiologia', 'Realizada'),\n(1, '2025-04-10', 'Dr. Ricardo Lima', 'Ortopedia', 'Cancelada'),\n(1, '2025-04-15', 'Dra. Juliana Mendes', 'Neurologia', 'Agendada'),\n(1, '2025-04-20', 'Dr. Fábio Torres', 'Gastroenterologia', 'Realizada'),\n(1, '2025-04-25', 'Dra. Carolina Andrade', 'Dermatologia', 'Agendada'),\n(1, '2025-04-30', 'Dr. Henrique Castro', 'Pediatria', 'Cancelada'),\n(1, '2025-05-05', 'Dra. Laura Fernandes', 'Endocrinologia', 'Realizada'),\n(1, '2025-05-10', 'Dr. Marcelo Farias', 'Urologia', 'Agendada'),\n(1, '2025-05-15', 'Dra. Paula Nascimento', 'Psiquiatria', 'Realizada'),\n\n(2, '2025-04-02', 'Dr. André Barros', 'Cardiologia', 'Agendada'),\n(2, '2025-04-06', 'Dra. Ana Bezerra', 'Neurologia', 'Realizada'),\n(2, '2025-04-11', 'Dr. Tiago Pereira', 'Ortopedia', 'Cancelada'),\n(2, '2025-04-16', 'Dra. Vanessa Oliveira', 'Dermatologia', 'Agendada'),\n(2, '2025-04-21', 'Dr. José Silva', 'Clínico Geral', 'Realizada'),\n(2, '2025-04-26', 'Dra. Silvia Ramos', 'Pediatria', 'Agendada'),\n(2, '2025-05-01', 'Dr. Mauro Gonçalves', 'Endocrinologia', 'Cancelada'),\n(2, '2025-05-06', 'Dra. Amanda Couto', 'Gastroenterologia', 'Realizada'),\n(2, '2025-05-11', 'Dr. César Martins', 'Psiquiatria', 'Agendada'),\n(2, '2025-05-16', 'Dra. Fabiana Lopes', 'Urologia', 'Realizada'),\n\n"
+            },
+            {
+                "date": "Apr 3, 2025 00:09:19.062",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO consultas (paciente_id, data_consulta, medico_nome, especialidade, status) VALUES\n(1, '2025-04-01', 'Dr. Carlos Almeida', 'Clínico Geral', 'Agendada'),\n(1, '2025-04-05', 'Dra. Marina Souza', 'Cardiologia', 'Realizada'),\n(1, '2025-04-10', 'Dr. Ricardo Lima', 'Ortopedia', 'Cancelada'),\n(1, '2025-04-15', 'Dra. Juliana Mendes', 'Neurologia', 'Agendada'),\n(1, '2025-04-20', 'Dr. Fábio Torres', 'Gastroenterologia', 'Realizada'),\n(1, '2025-04-25', 'Dra. Carolina Andrade', 'Dermatologia', 'Agendada'),\n(1, '2025-04-30', 'Dr. Henrique Castro', 'Pediatria', 'Cancelada'),\n(1, '2025-05-05', 'Dra. Laura Fernandes', 'Endocrinologia', 'Realizada'),\n(1, '2025-05-10', 'Dr. Marcelo Farias', 'Urologia', 'Agendada'),\n(1, '2025-05-15', 'Dra. Paula Nascimento', 'Psiquiatria', 'Realizada'),\n\n(2, '2025-04-02', 'Dr. André Barros', 'Cardiologia', 'Agendada'),\n(2, '2025-04-06', 'Dra. Ana Bezerra', 'Neurologia', 'Realizada'),\n(2, '2025-04-11', 'Dr. Tiago Pereira', 'Ortopedia', 'Cancelada'),\n(2, '2025-04-16', 'Dra. Vanessa Oliveira', 'Dermatologia', 'Agendada'),\n(2, '2025-04-21', 'Dr. José Silva', 'Clínico Geral', 'Realizada'),\n(2, '2025-04-26', 'Dra. Silvia Ramos', 'Pediatria', 'Agendada'),\n(2, '2025-05-01', 'Dr. Mauro Gonçalves', 'Endocrinologia', 'Cancelada'),\n(2, '2025-05-06', 'Dra. Amanda Couto', 'Gastroenterologia', 'Realizada'),\n(2, '2025-05-11', 'Dr. César Martins', 'Psiquiatria', 'Agendada'),\n(2, '2025-05-16', 'Dra. Fabiana Lopes', 'Urologia', 'Realizada'),\n\n-- Continue para os demais pacientes de maneira similar até o ID 10"
+            },
+            {
+                "date": "Apr 2, 2025 23:39:58.454",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO internacoes (paciente_id, data_internacao, cirurgia, hora_cirurgia, tipo_acomodacao, acompanhante_nome, acompanhante_cpf, acompanhante_telefone, acompanhante_relacao) VALUES\n(1, '2025-04-01', 'Nenhuma', NULL, 'convênio', 'Maria Ferreira', '123.456.789-10', '(11) 91234-5678', 'Esposa'),\n(2, '2025-03-29', 'Broncoscopia diagnóstica', '14:00', 'sus', 'Carlos Santos', '321.654.987-21', '(21) 99876-5432', 'Irmão'),\n(3, '2025-04-02', 'Cateterismo cardíaco', '10:30', 'particular', 'Fernanda Lima', '654.321.789-32', '(41) 98765-4321', 'Esposa'),\n(4, '2025-03-27', 'Nenhuma', NULL, 'convênio', 'Roberto Souza', '987.654.321-43', '(51) 90012-3456', 'Filho'),\n(5, '2025-04-03', 'Artroscopia do joelho', '08:45', 'particular', 'Ana Oliveira', '159.357.468-54', '(31) 95678-1234', 'Filha'),\n(6, '2025-03-31', 'Nenhuma', NULL, 'sus', 'Pedro Mendes', '753.951.852-65', '(92) 96543-2100', 'Pai'),\n(7, '2025-04-04', 'Nenhuma', NULL, 'convênio', 'Luciana Lopes', '369.852.147-76', '(81) 97865-4321', 'Esposa'),\n(8, '2025-04-01', 'Apendicectomia', '15:15', 'sus', 'Cláudio Batista', '852.741.963-87', '(71) 98876-5544', 'Pai'),\n(9, '2025-03-28', 'Nenhuma', NULL, 'particular', 'Renata Pereira', '741.963.852-98', '(85) 97654-3321', 'Mãe'),\n(10, '2025-04-05', 'Nenhuma', NULL, 'convênio', 'Juliana Silva', '147.258.369-09', '(61) 95432-1098', 'Esposa');"
+            },
+            {
+                "date": "Apr 2, 2025 23:36:37.147",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO prontuario (paciente_id, anamnese, historico_familiar, descricao_sintomas, cirurgias, tratamentos, prescricoes, plano_pos_alta, hipoteses_diagnosticas, diagnosticos_definitivos, diagnostico_alta) VALUES\n(1, 'Paciente apresenta dores lombares persistentes há 6 meses.', 'Histórico de hipertensão na família.', 'Dores iniciaram após esforço físico intenso.', 'Nenhuma realizada.', 'Fisioterapia e analgesia.', 'Ibuprofeno 600mg 2x ao dia.', 'Evitar esforços físicos.', 'Hérnia de disco.', 'Hérnia de disco confirmada.', 'Liberado com orientações.'),\n(2, 'Queixa de tosse seca e cansaço há 2 semanas.', 'Histórico de asma na infância.', 'Sintomas agravados à noite.', 'Nenhuma realizada.', 'Uso de broncodilatadores.', 'Salbutamol inalatório.', 'Evitar poeira e ácaros.', 'Bronquite asmática.', 'Bronquite asmática confirmada.', 'Controle com pneumologista.'),\n(3, 'Paciente com dores no peito ao esforço.', 'Pai infartou aos 50 anos.', 'Dor piora com exercício e alivia com repouso.', 'Nenhuma realizada.', 'Uso de nitratos e beta-bloqueadores.', 'Atenolol 25mg 1x ao dia.', 'Reeducação alimentar e exercícios leves.', 'Angina instável.', 'Angina instável confirmada.', 'Encaminhado para cardiologista.'),\n(4, 'Paciente relata episódios frequentes de refluxo.', 'Histórico de gastrite na família.', 'Azia piora após refeições gordurosas.', 'Nenhuma realizada.', 'Dieta e uso de inibidores de bomba.', 'Omeprazol 20mg ao dia.', 'Evitar álcool e café.', 'Refluxo gastroesofágico.', 'Refluxo confirmado.', 'Alta com orientações dietéticas.'),\n(5, 'Queixa de dores articulares difusas.', 'Histórico de artrite reumatoide na família.', 'Dores mais intensas pela manhã.', 'Nenhuma realizada.', 'Uso de anti-inflamatórios.', 'Diclofenaco 50mg 2x ao dia.', 'Fisioterapia e exercícios leves.', 'Artrite reumatoide.', 'Artrite reumatoide confirmada.', 'Encaminhado para reumatologista.'),\n(6, 'Paciente apresenta febre e mal-estar há 3 dias.', 'Sem histórico relevante.', 'Febre alta, dor de cabeça e fadiga.', 'Nenhuma realizada.', 'Hidratação e controle sintomático.', 'Paracetamol 500mg 3x ao dia.', 'Repouso e hidratação.', 'Dengue.', 'Dengue confirmada.', 'Alta após melhora clínica.'),\n(7, 'Paciente com queixa de tontura e fadiga.', 'Histórico de anemia na família.', 'Fadiga progressiva nos últimos meses.', 'Nenhuma realizada.', 'Suplementação de ferro.', 'Sulfato ferroso 40mg ao dia.', 'Dieta rica em ferro.', 'Anemia ferropriva.', 'Anemia ferropriva confirmada.', 'Alta com suplementação.'),\n(8, 'Dor abdominal intensa e intermitente.', 'Sem histórico relevante.', 'Dor localizada em fossa ilíaca direita.', 'Cirurgia de apendicectomia agendada.', 'Antibióticos e analgesia.', 'Ciprofloxacino 500mg 2x ao dia.', 'Evitar alimentos gordurosos.', 'Apendicite.', 'Apendicite confirmada.', 'Encaminhado para cirurgia.'),\n(9, 'Paciente apresenta crises de enxaqueca frequentes.', 'Histórico familiar positivo.', 'Dor latejante unilateral, associada a náusea.', 'Nenhuma realizada.', 'Uso de triptanos e mudança de hábitos.', 'Sumatriptano 50mg sob demanda.', 'Redução do estresse e sono regular.', 'Enxaqueca.', 'Enxaqueca confirmada.', 'Alta com acompanhamento neurológico.'),\n(10, 'Paciente relata aumento da sede e urina excessiva.', 'Pai diabético tipo 2.', 'Perda de peso inexplicada nos últimos meses.', 'Nenhuma realizada.', 'Uso de hipoglicemiantes.', 'Metformina 500mg 2x ao dia.', 'Controle alimentar e atividade física.', 'Diabetes mellitus tipo 2.', 'Diabetes tipo 2 confirmado.', 'Encaminhado para endocrinologista.');"
+            },
+            {
+                "date": "Apr 2, 2025 23:35:58.717",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO prontuario (paciente_id, anamnese, historico_familiar, descricao_sintomas, exames_realizados, cirurgias, tratamentos, prescricoes, plano_pos_alta, hipoteses_diagnosticas, diagnosticos_definitivos, diagnostico_alta) VALUES\n(1, 'Paciente apresenta dores lombares persistentes há 6 meses.', 'Histórico de hipertensão na família.', 'Dores iniciaram após esforço físico intenso.', 'Raio-X da coluna.', 'Nenhuma realizada.', 'Fisioterapia e analgesia.', 'Ibuprofeno 600mg 2x ao dia.', 'Evitar esforços físicos.', 'Hérnia de disco.', 'Hérnia de disco confirmada.', 'Liberado com orientações.'),\n(2, 'Queixa de tosse seca e cansaço há 2 semanas.', 'Histórico de asma na infância.', 'Sintomas agravados à noite.', 'Espirometria e RX de tórax.', 'Nenhuma realizada.', 'Uso de broncodilatadores.', 'Salbutamol inalatório.', 'Evitar poeira e ácaros.', 'Bronquite asmática.', 'Bronquite asmática confirmada.', 'Controle com pneumologista.'),\n(3, 'Paciente com dores no peito ao esforço.', 'Pai infartou aos 50 anos.', 'Dor piora com exercício e alivia com repouso.', 'Eletrocardiograma e teste ergométrico.', 'Nenhuma realizada.', 'Uso de nitratos e beta-bloqueadores.', 'Atenolol 25mg 1x ao dia.', 'Reeducação alimentar e exercícios leves.', 'Angina instável.', 'Angina instável confirmada.', 'Encaminhado para cardiologista.'),\n(4, 'Paciente relata episódios frequentes de refluxo.', 'Histórico de gastrite na família.', 'Azia piora após refeições gordurosas.', 'Endoscopia digestiva alta.', 'Nenhuma realizada.', 'Dieta e uso de inibidores de bomba.', 'Omeprazol 20mg ao dia.', 'Evitar álcool e café.', 'Refluxo gastroesofágico.', 'Refluxo confirmado.', 'Alta com orientações dietéticas.'),\n(5, 'Queixa de dores articulares difusas.', 'Histórico de artrite reumatoide na família.', 'Dores mais intensas pela manhã.', 'Exames de fator reumatoide e PCR.', 'Nenhuma realizada.', 'Uso de anti-inflamatórios.', 'Diclofenaco 50mg 2x ao dia.', 'Fisioterapia e exercícios leves.', 'Artrite reumatoide.', 'Artrite reumatoide confirmada.', 'Encaminhado para reumatologista.'),\n(6, 'Paciente apresenta febre e mal-estar há 3 dias.', 'Sem histórico relevante.', 'Febre alta, dor de cabeça e fadiga.', 'Hemograma e sorologia.', 'Nenhuma realizada.', 'Hidratação e controle sintomático.', 'Paracetamol 500mg 3x ao dia.', 'Repouso e hidratação.', 'Dengue.', 'Dengue confirmada.', 'Alta após melhora clínica.'),\n(7, 'Paciente com queixa de tontura e fadiga.', 'Histórico de anemia na família.', 'Fadiga progressiva nos últimos meses.', 'Hemograma completo.', 'Nenhuma realizada.', 'Suplementação de ferro.', 'Sulfato ferroso 40mg ao dia.', 'Dieta rica em ferro.', 'Anemia ferropriva.', 'Anemia ferropriva confirmada.', 'Alta com suplementação.'),\n(8, 'Dor abdominal intensa e intermitente.', 'Sem histórico relevante.', 'Dor localizada em fossa ilíaca direita.', 'Ultrassom abdominal.', 'Cirurgia de apendicectomia agendada.', 'Antibióticos e analgesia.', 'Ciprofloxacino 500mg 2x ao dia.', 'Evitar alimentos gordurosos.', 'Apendicite.', 'Apendicite confirmada.', 'Encaminhado para cirurgia.'),\n(9, 'Paciente apresenta crises de enxaqueca frequentes.', 'Histórico familiar positivo.', 'Dor latejante unilateral, associada a náusea.', 'Ressonância magnética.', 'Nenhuma realizada.', 'Uso de triptanos e mudança de hábitos.', 'Sumatriptano 50mg sob demanda.', 'Redução do estresse e sono regular.', 'Enxaqueca.', 'Enxaqueca confirmada.', 'Alta com acompanhamento neurológico.'),\n(10, 'Paciente relata aumento da sede e urina excessiva.', 'Pai diabético tipo 2.', 'Perda de peso inexplicada nos últimos meses.', 'Glicemia de jejum e curva glicêmica.', 'Nenhuma realizada.', 'Uso de hipoglicemiantes.', 'Metformina 500mg 2x ao dia.', 'Controle alimentar e atividade física.', 'Diabetes mellitus tipo 2.', 'Diabetes tipo 2 confirmado.', 'Encaminhado para endocrinologista.');"
+            },
+            {
+                "date": "Apr 2, 2025 23:35:05.596",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO prontuario (paciente_id, anamnese, historico_familiar, descricao_sintomas, exames_realizados, cirurgias, tratamentos, prescricoes, plano_pos_alta, hipoteses_diagnosticas, diagnosticos_definitivos, diagnostico_alta) VALUES\n(1, 'Paciente apresenta dores lombares persistentes há 6 meses.', 'Histórico de hipertensão na família.', 'Dores iniciaram após esforço físico intenso.', 'Raio-X da coluna.', 'Nenhuma realizada.', 'Fisioterapia e analgesia.', 'Ibuprofeno 600mg 2x ao dia.', 'Evitar esforços físicos.', 'Hérnia de disco.', 'Confirmado hérnia de disco.', 'Liberado com orientações.'),\n(2, 'Queixa de tosse seca e cansaço há 2 semanas.', 'Histórico de asma na infância.', 'Sintomas agravados à noite.', 'Espirometria e RX de tórax.', 'Nenhuma realizada.', 'Uso de broncodilatadores.', 'Salbutamol inalatório.', 'Evitar poeira e ácaros.', 'Bronquite asmática.', 'Confirmado bronquite asmática.', 'Controle com pneumologista.'),\n(3, 'Paciente com dores no peito ao esforço.', 'Pai infartou aos 50 anos.', 'Dor piora com exercício e alivia com repouso.', 'Eletrocardiograma e teste ergométrico.', 'Nenhuma realizada.', 'Uso de nitratos e beta-bloqueadores.', 'Atenolol 25mg 1x ao dia.', 'Reeducação alimentar e exercícios leves.', 'Angina instável.', 'Confirmado angina instável.', 'Encaminhado para cardiologista.'),\n(4, 'Paciente relata episódios frequentes de refluxo.', 'Histórico de gastrite na família.', 'Azia piora após refeições gordurosas.', 'Endoscopia digestiva alta.', 'Nenhuma realizada.', 'Dieta e uso de inibidores de bomba.', 'Omeprazol 20mg ao dia.', 'Evitar álcool e café.', 'Refluxo gastroesofágico.', 'Confirmado refluxo gastroesofágico.', 'Alta com orientações dietéticas.'),\n(5, 'Queixa de dores articulares difusas.', 'Histórico de artrite reumatoide na família.', 'Dores mais intensas pela manhã.', 'Exames de fator reumatoide e PCR.', 'Nenhuma realizada.', 'Uso de anti-inflamatórios.', 'Diclofenaco 50mg 2x ao dia.', 'Fisioterapia e exercícios leves.', 'Artrite reumatoide.', 'Confirmado artrite reumatoide.', 'Encaminhado para reumatologista.'),\n(6, 'Paciente apresenta febre e mal-estar há 3 dias.', 'Sem histórico relevante.', 'Febre alta, dor de cabeça e fadiga.', 'Hemograma e sorologia.', 'Nenhuma realizada.', 'Hidratação e controle sintomático.', 'Paracetamol 500mg 3x ao dia.', 'Repouso e hidratação.', 'Dengue.', 'Confirmado dengue.', 'Alta após melhora clínica.'),\n(7, 'Paciente com queixa de tontura e fadiga.', 'Histórico de anemia na família.', 'Fadiga progressiva nos últimos meses.', 'Hemograma completo.', 'Nenhuma realizada.', 'Suplementação de ferro.', 'Sulfato ferroso 40mg ao dia.', 'Dieta rica em ferro.', 'Anemia ferropriva.', 'Confirmado anemia ferropriva.', 'Alta com suplementação.'),\n(8, 'Dor abdominal intensa e intermitente.', 'Sem histórico relevante.', 'Dor localizada em fossa ilíaca direita.', 'Ultrassom abdominal.', 'Nenhuma realizada.', 'Antibióticos e analgesia.', 'Ciprofloxacino 500mg 2x ao dia.', 'Evitar alimentos gordurosos.', 'Apendicite.', 'Confirmado apendicite.', 'Encaminhado para cirurgia.'),\n(9, 'Paciente apresenta crises de enxaqueca frequentes.', 'Histórico familiar positivo.', 'Dor latejante unilateral, associada a náusea.', 'Ressonância magnética.', 'Nenhuma realizada.', 'Uso de triptanos e mudança de hábitos.', 'Sumatriptano 50mg sob demanda.', 'Redução do estresse e sono regular.', 'Enxaqueca.', 'Confirmado enxaqueca.', 'Alta com acompanhamento neurológico.'),\n(10, 'Paciente relata aumento da sede e urina excessiva.', 'Pai diabético tipo 2.', 'Perda de peso inexplicada nos últimos meses.', 'Glicemia de jejum e curva glicêmica.', 'Nenhuma realizada.', 'Uso de hipoglicemiantes.', 'Metformina 500mg 2x ao dia.', 'Controle alimentar e atividade física.', 'Diabetes mellitus tipo 2.', 'Confirmado diabetes tipo 2.', 'Encaminhado para endocrinologista.');"
+            },
+            {
+                "date": "Apr 2, 2025 23:04:28.338",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO pacientes (nome_completo, data_nascimento, genero, endereco, tipo_sanguineo, contato_emergencia, rg_cpf) VALUES\n('João Carlos Ferreira', '1985-03-15', 'Masculino', 'Rua das Acácias, 123, São Paulo - SP', 'O+', '(11) 98765-4321', '123.456.789-00'),\n('Pedro Henrique Santos', '1992-08-22', 'Masculino', 'Av. Brasil, 450, Rio de Janeiro - RJ', 'A-', '(21) 91234-5678', '321.654.987-11'),\n('Marcos Antônio Lima', '1978-11-10', 'Masculino', 'Rua Florianópolis, 222, Curitiba - PR', 'B+', '(41) 99876-5432', '654.321.789-22'),\n('Ricardo Alves Souza', '1980-05-05', 'Masculino', 'Praça Central, 17, Porto Alegre - RS', 'AB+', '(51) 90012-3456', '987.654.321-33'),\n('Lucas Matheus Oliveira', '1995-02-28', 'Masculino', 'Rua Bahia, 89, Belo Horizonte - MG', 'O-', '(31) 95678-1234', '159.357.468-44'),\n('Thiago dos Santos Mendes', '1989-07-14', 'Masculino', 'Av. Amazonas, 300, Manaus - AM', 'A+', '(92) 96543-2100', '753.951.852-55'),\n('Gustavo Ferreira Lopes', '1973-09-03', 'Masculino', 'Rua do Comércio, 77, Recife - PE', 'B-', '(81) 97865-4321', '369.852.147-66'),\n('Eduardo Lima Batista', '1999-12-09', 'Masculino', 'Rua Sol Nascente, 11, Salvador - BA', 'AB-', '(71) 98876-5544', '852.741.963-77'),\n('Rafael Cardoso Pereira', '1984-06-18', 'Masculino', 'Alameda das Palmeiras, 55, Fortaleza - CE', 'O+', '(85) 97654-3321', '741.963.852-88'),\n('Fernando Moreira Silva', '1990-04-27', 'Masculino', 'Rua Dom Pedro II, 100, Brasília - DF', 'A+', '(61) 95432-1098', '147.258.369-99');"
+            },
+            {
+                "date": "Mar 31, 2025 21:54:12.162",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE usuarios_sistema(\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    cpf VARCHAR(14) UNIQUE NOT NULL,\n    rg VARCHAR(12) UNIQUE NOT NULL,\n    nome_completo VARCHAR(255) NOT NULL,\n    email VARCHAR(255) UNIQUE NOT NULL,\n    telefone VARCHAR(20) NOT NULL,\n    senha VARCHAR(255) NOT NULL,\n    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);"
+            },
+            {
+                "date": "Mar 31, 2025 15:41:00.157",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO enfermeiras (nome, registro_profissional, cpf, rg, email, telefone, endereco) VALUES\n('Joana Diniz', '123456-SP', '123.456.789-01', '12.345.678-9', 'joana.diniz@email.com', '(11) 91234-5678', 'Rua A, 100 - SP'),\n('Ana Paula Santos', '234567-RJ', '234.567.890-12', '23.456.789-0', 'ana.santos@email.com', '(21) 92345-6789', 'Rua B, 200 - RJ'),\n('Carlos Mendes', '345678-MG', '345.678.901-23', '34.567.890-1', 'carlos.mendes@email.com', '(31) 93456-7890', 'Rua C, 300 - MG'),\n('Fernanda Oliveira', '456789-BA', '456.789.012-34', '45.678.901-2', 'fernanda.oliveira@email.com', '(71) 94567-8901', 'Rua D, 400 - BA'),\n('Rafael Souza', '567890-PR', '567.890.123-45', '56.789.012-3', 'rafael.souza@email.com', '(41) 95678-9012', 'Rua E, 500 - PR'),\n('Gabriela Martins', '678901-RS', '678.901.234-56', '67.890.123-4', 'gabriela.martins@email.com', '(51) 96789-0123', 'Rua F, 600 - RS'),\n('Bruno Almeida', '789012-SC', '789.012.345-67', '78.901.234-5', 'bruno.almeida@email.com', '(48) 97890-1234', 'Rua G, 700 - SC'),\n('Juliana Lopes', '890123-PE', '890.123.456-78', '89.012.345-6', 'juliana.lopes@email.com', '(81) 98901-2345', 'Rua H, 800 - PE'),\n('Roberto Vasconcelos', '901234-CE', '901.234.567-89', '90.123.456-7', 'roberto.vasconcelos@email.com', '(85) 99012-3456', 'Rua I, 900 - CE'),\n('Mariana Rocha', '012345-ES', '012.345.678-90', '01.234.567-8', 'mariana.rocha@email.com', '(27) 90123-4567', 'Rua J, 1000 - ES'),\n('Letícia Pereira', '112233-MT', '112.233.445-56', '11.223.344-5', 'leticia.pereira@email.com', '(65) 91122-3344', 'Rua K, 1100 - MT'),\n('André Lima', '223344-PA', '223.344.556-67', '22.334.455-6', 'andre.lima@email.com', '(91) 92233-4455', 'Rua L, 1200 - PA'),\n('Beatriz Costa', '334455-AM', '334.455.667-78', '33.445.566-7', 'beatriz.costa@email.com', '(92) 93344-5566', 'Rua M, 1300 - AM'),\n('Tiago Barbosa', '445566-PI', '445.566.778-89', '44.556.677-8', 'tiago.barbosa@email.com', '(86) 94455-6677', 'Rua N, 1400 - PI'),\n('Camila Ribeiro', '556677-GO', '556.677.889-90', '55.667.788-9', 'camila.ribeiro@email.com', '(62) 95566-7788', 'Rua O, 1500 - GO'),\n('Eduardo Torres', '667788-MA', '667.788.990-01', '66.778.899-0', 'eduardo.torres@email.com', '(98) 96677-8899', 'Rua P, 1600 - MA'),\n('Vanessa Medeiros', '778899-AL', '778.899.101-12', '77.889.910-1', 'vanessa.medeiros@email.com', '(82) 97788-9910', 'Rua Q, 1700 - AL'),\n('Carla Mendes', '889900-AP', '889.900.212-23', '88.990.021-2', 'carla.mendes@email.com', '(96) 98899-0021', 'Rua R, 1800 - AP');"
+            },
+            {
+                "date": "Mar 31, 2025 15:38:56.965",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO enfermeiras (nome_completo, coren, especialidade) VALUES\n('Enf. Joana Diniz', '123456-SP', 'UTI'),\n('Enf. Ana Paula Santos', '234567-RJ', 'Pediatria'),\n('Enf. Carlos Mendes', '345678-MG', 'Emergência'),\n('Enf. Fernanda Oliveira', '456789-BA', 'Oncologia'),\n('Enf. Rafael Souza', '567890-PR', 'Clínica Médica'),\n('Enf. Gabriela Martins', '678901-RS', 'Geriatria'),\n('Enf. Bruno Almeida', '789012-SC', 'Ortopedia'),\n('Enf. Juliana Lopes', '890123-PE', 'Centro Cirúrgico'),\n('Enf. Roberto Vasconcelos', '901234-CE', 'Nefrologia'),\n('Enf. Mariana Rocha', '012345-ES', 'Saúde Mental'),\n('Enf. Letícia Pereira', '112233-MT', 'Infectologia'),\n('Enf. André Lima', '223344-PA', 'Cardiologia'),\n('Enf. Beatriz Costa', '334455-AM', 'Obstetrícia'),\n('Enf. Tiago Barbosa', '445566-PI', 'Pneumologia'),\n('Enf. Camila Ribeiro', '556677-GO', 'Dermatologia'),\n('Enf. Eduardo Torres', '667788-MA', 'Reumatologia'),\n('Enf. Vanessa Medeiros', '778899-AL', 'Hematologia'),\n('Enf. Carla Mendes', '889900-AP', 'Emergência');"
+            },
+            {
+                "date": "Mar 31, 2025 15:34:35.646",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO medicos (nome, especialidade, crm, telefone, email) VALUES\n('Dr. Lucas Alves', 'Cardiologia', '12345-SP', '11911111111', 'lucas@hospital.com'),\n('Dra. Mariana Costa', 'Pediatria', '67890-RJ', '11922222222', 'mariana@hospital.com'),\n('Dr. Rafael Mendes', 'Ortopedia', '11223-BA', '11933333333', 'rafael@hospital.com'),\n('Dra. Fernanda Lopes', 'Dermatologia', '44556-MG', '11944444444', 'fernanda@hospital.com'),\n('Dr. André Pereira', 'Neurologia', '77889-PR', '11955555555', 'andre@hospital.com'),\n('Dra. Carolina Rocha', 'Ginecologia', '99000-SP', '11966666666', 'carolina@hospital.com'),\n('Dr. Gustavo Lima', 'Oftalmologia', '11122-RJ', '11977777777', 'gustavo@hospital.com'),\n('Dra. Patrícia Almeida', 'Psiquiatria', '33344-BA', '11988888888', 'patricia@hospital.com'),\n('Dr. Henrique Vasconcelos', 'Endocrinologia', '55566-MG', '11999999999', 'henrique@hospital.com'),\n('Dra. Letícia Medeiros', 'Reumatologia', '77788-PR', '11811111111', 'leticia@hospital.com'),\n('Dr. Bruno Santos', 'Hematologia', '99900-SP', '11822222222', 'bruno@hospital.com'),\n('Dra. Amanda Torres', 'Nefrologia', '11233-RJ', '11833333333', 'amanda@hospital.com');"
+            },
+            {
+                "date": "Mar 31, 2025 15:34:05.980",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO usuarios (cpf, rg, nome_completo, email, telefone, senha) VALUES\n('12345678901', 'MG123456', 'João Silva', 'joao@gmail.com', '11999999999', 'senha123'),\n('98765432102', 'SP987654', 'Maria Oliveira', 'maria@gmail.com', '11988888888', 'senha123'),\n('11122233344', 'RJ111222', 'Carlos Souza', 'carlos@gmail.com', '11977777777', 'senha123'),\n('55566677788', 'BA555666', 'Ana Pereira', 'ana@gmail.com', '11966666666', 'senha123'),\n('99988877766', 'RS999888', 'Paulo Santos', 'paulo@gmail.com', '11955555555', 'senha123'),\n('11223344556', 'SC112233', 'Clara Medeiros', 'clara@gmail.com', '11944444444', 'senha123'),\n('22334455667', 'PR223344', 'Ricardo Almeida', 'ricardo@gmail.com', '11933333333', 'senha123'),\n('33445566778', 'CE334455', 'Fernanda Lima', 'fernanda@gmail.com', '11922222222', 'senha123'),\n('44556677889', 'PE445566', 'Roberto Vasconcelos', 'roberto@gmail.com', '11911111111', 'senha123'),\n('55667788990', 'ES556677', 'Beatriz Rocha', 'beatriz@gmail.com', '11900000000', 'senha123'),\n('66778899001', 'GO667788', 'Marcos Vinícius', 'marcos@gmail.com', '11899999999', 'senha123'),\n('77889900112', 'TO778899', 'Juliana Costa', 'juliana@gmail.com', '11888888888', 'senha123'),\n('88990011223', 'PI889900', 'Fábio Torres', 'fabio@gmail.com', '11877777777', 'senha123'),\n('99001122334', 'MT990011', 'Gabriela Martins', 'gabriela@gmail.com', '11866666666', 'senha123'),\n('00112233445', 'PA001122', 'Tiago Barbosa', 'tiago@gmail.com', '11855555555', 'senha123');"
+            },
+            {
+                "date": "Mar 31, 2025 15:33:56.616",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "INSERT INTO remedios (nome, laboratorio, lote, validade, quantidade, cpf_paciente) VALUES\n('Paracetamol', 'Medley', 'L1234', '2026-05-10', 100, NULL),\n('Ibuprofeno', 'Neo Química', 'L5678', '2025-12-20', 200, NULL),\n('Dipirona', 'Sanofi', 'L9101', '2026-08-15', 150, NULL),\n('Amoxicilina', 'EMS', 'L1122', '2025-07-30', 80, NULL),\n('Azitromicina', 'Prati-Donaduzzi', 'L3344', '2026-02-05', 50, NULL),\n('Omeprazol', 'Aché', 'L5566', '2026-03-15', 120, NULL),\n('Losartana', 'Teuto', 'L7788', '2025-11-22', 90, NULL),\n('Metformina', 'EMS', 'L9910', '2026-09-05', 70, NULL),\n('Salbutamol', 'Eurofarma', 'L2020', '2026-06-10', 110, NULL),\n('Ranitidina', 'Libbs', 'L3030', '2025-04-28', 95, NULL),\n('AAS', 'Bayer', 'L4040', '2026-12-01', 130, NULL),\n('Clonazepam', 'Medley', 'L5050', '2026-10-18', 65, NULL),\n('Cetirizina', 'Neo Química', 'L6060', '2025-09-12', 85, NULL),\n('Prednisona', 'Sanofi', 'L7070', '2026-07-14', 75, NULL),\n('Ivermectina', 'Vitamedic', 'L8080', '2025-03-10', 60, NULL),\n('Loratadina', 'Cimed', 'L9090', '2026-01-25', 140, NULL),\n('Hidroxicloroquina', 'EMS', 'L1010', '2025-08-21', 45, NULL),\n('Dexametasona', 'Prati-Donaduzzi', 'L1111', '2026-11-30', 55, NULL),\n('Captopril', 'Aché', 'L1212', '2025-06-17', 125, NULL),\n('Enalapril', 'Libbs', 'L1313', '2026-04-20', 105, NULL);"
+            },
+            {
+                "date": "Mar 31, 2025 15:25:51.704",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE consultas (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    paciente_id INT NOT NULL,\n    medico_id INT NOT NULL,\n    data_consulta DATETIME NOT NULL,\n    status ENUM('agendada', 'realizada', 'cancelada') DEFAULT 'agendada',\n    observacoes TEXT,\n    FOREIGN KEY (paciente_id) REFERENCES pacientes(id),\n    FOREIGN KEY (medico_id) REFERENCES medicos(id)\n);\n\nCREATE TABLE solicitacoes_remedios (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    usuario_id INT NOT NULL,\n    remedio_id INT NOT NULL,\n    status VARCHAR(20) DEFAULT 'Pendente',\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),\n    FOREIGN KEY (remedio_id) REFERENCES remedios(id)\n);"
+            },
+            {
+                "date": "Mar 31, 2025 15:25:08.169",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE medicos (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nome VARCHAR(100) NOT NULL,\n    especialidade VARCHAR(100) NOT NULL,\n    crm VARCHAR(20) NOT NULL UNIQUE,\n    telefone VARCHAR(20),\n    email VARCHAR(100) UNIQUE\n);\n\nCREATE TABLE remedios (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nome VARCHAR(100) NOT NULL,\n    laboratorio VARCHAR(100) NOT NULL,\n    lote VARCHAR(50) NOT NULL,\n    validade DATE NOT NULL,\n    quantidade INT NOT NULL,\n    cpf_paciente VARCHAR(20)\n);\n\nCREATE TABLE consultas (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    paciente_id INT NOT NULL,\n    medico_id INT NOT NULL,\n    data_consulta DATETIME NOT NULL,\n    status ENUM('agendada', 'realizada', 'cancelada') DEFAULT 'agendada',\n    observacoes TEXT,\n    FOREIGN KEY (paciente_id) REFERENCES pacientes(id),\n    FOREIGN KEY (medico_id) REFERENCES medicos(id)\n);\n\nCREATE TABLE solicitacoes_remedios (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    usuario_id INT NOT NULL,\n    remedio_id INT NOT NULL,\n    status VARCHAR(20) DEFAULT 'Pendente',\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),\n    FOREIGN KEY (remedio_id) REFERENCES remedios(id)\n);"
+            },
+            {
+                "date": "Mar 31, 2025 15:24:17.893",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE remedios (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nome VARCHAR(100) NOT NULL,\n    laboratorio VARCHAR(100) NOT NULL,\n    lote VARCHAR(50) NOT NULL,\n    validade DATE NOT NULL,\n    quantidade INT NOT NULL,\n    cpf_paciente VARCHAR(20)\n);\n\nCREATE TABLE consultas (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    paciente_id INT NOT NULL,\n    medico_id INT NOT NULL,\n    data_consulta DATETIME NOT NULL,\n    status ENUM('agendada', 'realizada', 'cancelada') DEFAULT 'agendada',\n    observacoes TEXT,\n    FOREIGN KEY (paciente_id) REFERENCES pacientes(id),\n    FOREIGN KEY (medico_id) REFERENCES medicos(id)\n);\n\nCREATE TABLE solicitacoes_remedios (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    usuario_id INT NOT NULL,\n    remedio_id INT NOT NULL,\n    status VARCHAR(20) DEFAULT 'Pendente',\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),\n    FOREIGN KEY (remedio_id) REFERENCES remedios(id)\n);"
+            },
+            {
+                "date": "Mar 31, 2025 15:22:59.487",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE solicitacoes_remedios (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    usuario_id INT NOT NULL,\n    remedio_id INT NOT NULL,\n    status VARCHAR(20) DEFAULT 'Pendente',\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),\n    FOREIGN KEY (remedio_id) REFERENCES remedios(id)\n);"
+            },
+            {
+                "date": "Mar 31, 2025 15:12:48.639",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "-- Criar o banco de dados\nCREATE DATABASE IF NOT EXISTS hospital_esperanca;\nUSE hospital_esperanca;\n\n-- Tabela de Pacientes\nCREATE TABLE pacientes (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nome_completo VARCHAR(255) NOT NULL,\n    data_nascimento DATE NOT NULL,\n    genero ENUM('Masculino', 'Feminino', 'Outro') NOT NULL,\n    endereco VARCHAR(255) NOT NULL,\n    tipo_sanguineo VARCHAR(3),\n    contato_emergencia VARCHAR(255),\n    rg_cpf VARCHAR(20) NOT NULL UNIQUE\n);\n\n-- Tabela de Acompanhamento Diário\nCREATE TABLE acompanhamento (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    paciente_id INT NOT NULL,\n    data_acompanhamento DATE NOT NULL,\n    status VARCHAR(255) NOT NULL,\n    observacoes TEXT,\n    FOREIGN KEY (paciente_id) REFERENCES pacientes(id) ON DELETE CASCADE\n);\n\n-- Tabela do Prontuário Médico\nCREATE TABLE prontuario (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    paciente_id INT NOT NULL,\n    anamnese TEXT,\n    historico_familiar TEXT,\n    descricao_sintomas TEXT,\n    exames TEXT,\n    cirurgias TEXT,\n    tratamentos TEXT,\n    prescricoes TEXT,\n    planejamento_terapeutico TEXT,\n    plano_pos_alta TEXT,\n    hipoteses_diagnosticas TEXT,\n    diagnosticos_definitivos TEXT,\n    diagnostico_alta TEXT,\n    FOREIGN KEY (paciente_id) REFERENCES pacientes(id) ON DELETE CASCADE\n);\n\n-- Tabela de Internações\nCREATE TABLE internacoes (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    paciente_id INT NOT NULL,\n    data_internacao DATE NOT NULL,\n    cirurgia VARCHAR(255),\n    hora_cirurgia TIME,\n    tipo_acomodacao VARCHAR(50),\n    acompanhante_nome VARCHAR(255),\n    acompanhante_cpf VARCHAR(14),\n    acompanhante_telefone VARCHAR(15),\n    acompanhante_relacao VARCHAR(100),\n    FOREIGN KEY (paciente_id) REFERENCES pacientes(id) ON DELETE CASCADE\n);\n\n-- Tabela de Acompanhantes\nCREATE TABLE acompanhantes (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    paciente_id INT NOT NULL,\n    nome VARCHAR(255) NOT NULL,\n    cpf VARCHAR(14) NOT NULL,\n    telefone VARCHAR(15),\n    relacao VARCHAR(100),\n    FOREIGN KEY (paciente_id) REFERENCES pacientes(id) ON DELETE CASCADE\n);\n\n-- Tabela de Enfermeiras\nCREATE TABLE enfermeiras (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nome VARCHAR(255) NOT NULL,\n    registro_profissional VARCHAR(50) NOT NULL UNIQUE,\n    cpf VARCHAR(20),\n    rg VARCHAR(20),\n    email VARCHAR(100) UNIQUE,\n    telefone VARCHAR(20),\n    endereco VARCHAR(255)\n);\n\n-- Tabela de Usuários do Sistema\nCREATE TABLE usuarios (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nome VARCHAR(100) NOT NULL,\n    email VARCHAR(100) UNIQUE NOT NULL,\n    senha VARCHAR(255) NOT NULL,\n    tipo ENUM('admin', 'usuario') NOT NULL\n);\n\n-- Inserção de usuário administrador padrão\nINSERT INTO usuarios (nome, email, senha, tipo) VALUES\n('Administrador', 'admin@hospital.com', '123', 'admin'),\n('Hospital Enfermagem', 'he@hospital.com', 'hospital', 'usuario');"
+            },
+            {
+                "date": "Mar 31, 2025 15:01:41.792",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE remedios (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nome VARCHAR(100) NOT NULL,\n    laboratorio VARCHAR(100) NOT NULL,\n    lote VARCHAR(50) NOT NULL,\n    validade DATE NOT NULL,\n    quantidade INT NOT NULL,\n    cpf_paciente VARCHAR(20)\n);"
+            },
+            {
+                "date": "Mar 31, 2025 15:01:32.006",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE enfermeiras (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nome VARCHAR(100) NOT NULL,\n    registro_profissional VARCHAR(20) NOT NULL UNIQUE,\n    cpf VARCHAR(20) NOT NULL UNIQUE,\n    rg VARCHAR(20),\n    email VARCHAR(100) UNIQUE,\n    telefone VARCHAR(20),\n    endereco VARCHAR(255)\n);"
+            },
+            {
+                "date": "Mar 31, 2025 15:01:23.687",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE medicos (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nome VARCHAR(100) NOT NULL,\n    especialidade VARCHAR(100) NOT NULL,\n    crm VARCHAR(20) NOT NULL UNIQUE,\n    telefone VARCHAR(20),\n    email VARCHAR(100) UNIQUE\n);"
+            },
+            {
+                "date": "Mar 31, 2025 15:01:14.679",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE internacoes (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    paciente_id INT NOT NULL,\n    cirurgia VARCHAR(255),\n    hora_cirurgia TIME,\n    tipo_acomodacao VARCHAR(50),\n    acompanhante_nome VARCHAR(255),\n    acompanhante_cpf VARCHAR(20),\n    acompanhante_telefone VARCHAR(20),\n    acompanhante_relacao VARCHAR(100),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    FOREIGN KEY (paciente_id) REFERENCES pacientes(id)\n);"
+            },
+            {
+                "date": "Mar 31, 2025 15:01:04.079",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE usuarios (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    cpf VARCHAR(20) NOT NULL UNIQUE,\n    rg VARCHAR(20) NOT NULL UNIQUE,\n    nome_completo VARCHAR(255) NOT NULL,\n    email VARCHAR(255) NOT NULL UNIQUE,\n    telefone VARCHAR(20),\n    senha VARCHAR(255) NOT NULL,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);"
+            },
+            {
+                "date": "Mar 31, 2025 14:59:15.301",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "CREATE TABLE pacientes (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nome_completo VARCHAR(255) NOT NULL,\n    data_nascimento DATE NOT NULL,\n    genero VARCHAR(20) NOT NULL,\n    endereco VARCHAR(255) NOT NULL,\n    tipo_sanguineo VARCHAR(5) NOT NULL,\n    contato_emergencia VARCHAR(20),\n    rg_cpf VARCHAR(20) NOT NULL UNIQUE\n);"
+            },
+            {
+                "date": "Mar 31, 2025 14:58:36.765",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "create database hospital_esperanca;"
+            },
+            {
+                "date": "Mar 31, 2025 14:58:25.448",
+                "isAppGenerated": false,
+                "isHistory": true,
+                "statement": "create table hospital_esperanca;"
+            }
+        ],
+        "savedQueries": [],
+        "url": "0.0.0.0",
+        "user": "root",
+        "vendorEnum": "MY_SQL"
+    }
+]
