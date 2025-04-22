@@ -1,2 +1,1 @@
-1- Criar uma interface usando tkinter ou outro frawmeork.
-2- Criar um Executável do Script.
+
